@@ -8,8 +8,12 @@ import asyncio
 from tqdm import tqdm
 import json
 
-email_addressees = ['maryomoerlins@gmail.com']
-# email_addresses = ["mpaurin@uchicago.edu"]
+# email_addressees = ['maryomoerlins@gmail.com']
+email_addresses = [
+"jsu5625j@gmail.com",
+"margaret@hgsengineeringinc.com",
+"summersm@uab.edu",
+]
 
 # Specify the path to your MBOX file
 MBOX_FILE = 'data/All Mail including Spam and Trash.mbox'
@@ -64,7 +68,7 @@ async def process_email(idx, message, email_addresses, output_file):
         output_file.write(json.dumps(email_data) + '\n')
     return idx
 
-async def extract_emails(start_idx=0, email_addresses=email_addressees):
+async def extract_emails(start_idx=0, email_addresses=email_addresses):
     mbox = mailbox.mbox(MBOX_FILE)
     total_emails = len(mbox)
     print(f"Total emails in mbox: {total_emails}")
